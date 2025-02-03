@@ -1,6 +1,9 @@
+
 import MuiMenu, {MenuProps as MuiMenuProps} from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { useState } from 'react';
+import { BasicModal } from '../Modal/Modal';
+import { Button } from '../Button/Button';
 
 interface MenuProps extends MuiMenuProps{
 	className?: string;
@@ -8,20 +11,26 @@ interface MenuProps extends MuiMenuProps{
 
 export const Menu: React.FC<MenuProps> = (props) => {
 	const {className, anchorEl, open, onClose} = props;
-
+	const [openModal, setOpen] = useState(false);
+	const handleOpen = () => setOpen(true);
+	const handleClose = () => setOpen(false);
 
 
 	return (
-
+		<div>
 		<MuiMenu
 			anchorEl={anchorEl}
 			open={open}
 			onClose={onClose}
 		>
-			<MenuItem >Profile</MenuItem>
+			<MenuItem onClick={handleOpen}>Profile</MenuItem>
 			<MenuItem >My account</MenuItem>
 			<MenuItem >Logout</MenuItem>
 		</MuiMenu>
+
+		<BasicModal openm={openModal} onClose={handleClose} ></BasicModal>
+		</div>
+
 
 	);
 }
