@@ -9,15 +9,14 @@
 		"moduleResolution": "node",
 		"esModuleInterop": true,
 		"allowSyntheticDefaultImports": true,
-		//для настройки абсолютных импортов
-		"baseUrl": ".",
-		"paths": {
-			"*": [
-				"./src/*"
-			]
+		"baseUrl": "src"
+	},
+	"ts-node": {
+		"compilerOptions": {
+			"module": "CommonJS"
 		}
 	},
-  "include": [
-    "src"
-  ]
+	"include": [
+		"src"
+	]
 }

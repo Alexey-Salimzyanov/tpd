@@ -1,0 +1,42 @@
+.tabPanel {
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .tab-list {
+	display: flex;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #ccc;
+  }
+  
+  .tab {
+	padding: 10px 20px;
+	cursor: pointer;
+	border: none;
+	background: none;
+	outline: none;
+	transition: background-color 0.3s;
+	flex-grow: 1;
+	text-align: center;
+  }
+  
+  .tab:hover {
+	background-color: #f0f0f0;
+  }
+  
+  .tab.active {
+	border-bottom: 2px solid #007bff;
+  }
+  
+  .tab-content {
+	padding: 20px;
+  }
+  
+  .tab-panel {
+	display: none;
+  }
+  
+  .tab-panel.active {
+	display: block;
+  }
+  
