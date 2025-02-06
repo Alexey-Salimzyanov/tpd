@@ -1,6 +1,6 @@
 import Paper from '@mui/material/Paper';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { DataGrid, DataGridProps } from '@mui/x-data-grid';
+import { DataGrid, DataGridProps, GridSlotsComponentsProps } from '@mui/x-data-grid';
 import { ruRU } from '@mui/x-data-grid/locales';
 import cls from './Table.module.css';
 import { classNames } from '6_shared/lib/classNames/ClassNames';
@@ -20,23 +20,19 @@ interface TableProps extends DataGridProps{
 	className?: string;
 }
 
-const handler = (e: SyntheticEvent, row:Object) => {
-	e.preventDefault();
-	console.log("Контекстное меню вызвано для строки с данными:", row);
-  };
   
 export const Table: React.FC<TableProps> = (props) => {
-	const { className, rows, columns, paginationModel } = props;
-	const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-	const open = Boolean(anchorEl);
-	const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-		event.preventDefault()
-	  setAnchorEl(event.currentTarget);
+	const { className, rows, columns, paginationModel, slotProps } = props;
+	// const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+	// const open = Boolean(anchorEl);
+	// const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+	// 	event.preventDefault()
+	//   setAnchorEl(event.currentTarget);
 	  
-	};
-	const handleClose = () => {
-	  setAnchorEl(null);
-	};
+	// };
+	// const handleClose = () => {
+	//   setAnchorEl(null);
+	// };
 	return (
 		<Paper sx={{ height: 400, width: '900px' }}>
 			<div style={{ height: 400, width: '100%' }}>
@@ -48,18 +44,12 @@ export const Table: React.FC<TableProps> = (props) => {
 						pageSizeOptions={[5, 10]}
 						sx={{ border: 0 }}
 						getRowId={(row) => row.id}
-						slotProps={{
-							cell: {
-								onContextMenu: (e) => {
-									handleClick(e)
-								},
-								style: { cursor: 'context-menu' },
-							},
-						}}
+						slotProps={slotProps}
+						
 					/>
 				</ThemeProvider>
 			</div>
-			<Menu open={open} anchorEl={anchorEl} onClose={handleClose}/>
+			 {/* <Menu open={open} anchorEl={anchorEl} onClose={handleClose}/> */}
 		</Paper>
 	);
 }
