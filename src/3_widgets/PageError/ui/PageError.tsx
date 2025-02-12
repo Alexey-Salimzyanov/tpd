@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { classNames } from '6_shared/lib/classNames/ClassNames';
-import { Button } from '6_shared/ui/Button/Button';
+import { Button, VariantButton } from '6_shared/ui/Button/Button';
 import cls from './PageError.module.css';
 
 interface PageErrorProps {
@@ -18,7 +18,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
     return (
         <div className={classNames(cls.PageError, {}, [className])}>
             <p>Произошла непредвиденная ошибка</p>
-            <Button onClick={reloadPage}>
+            <Button variant={VariantButton.OUTLINED} onClick={reloadPage}>
                 Обновить страницу
             </Button>
         </div>

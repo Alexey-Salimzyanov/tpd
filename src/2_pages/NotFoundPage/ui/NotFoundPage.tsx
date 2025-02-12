@@ -9,7 +9,7 @@ export const NotFoundPage = (props :NotFoundPageProps) => {
     const { className } = props;
 
     return (
-        <div className={classNames(cls.NotFoundPage, {}, [className])}>
+        <div  className={classNames(cls.NotFoundPage, {}, [className])}>
             Страница не найдена
         </div>
     );

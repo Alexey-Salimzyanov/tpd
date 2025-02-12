@@ -1,0 +1,9 @@
+.Button{
+    padding: 5px;
+}
+
+.outlined{
+    background: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
