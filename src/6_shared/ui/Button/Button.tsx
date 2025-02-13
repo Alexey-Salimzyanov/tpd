@@ -4,6 +4,7 @@ import cls from './Button.module.css';
 
 export enum VariantButton{
 	OUTLINED = 'outlined',
+    CLEAR = 'clear',
 }
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{

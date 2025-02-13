@@ -12,5 +12,16 @@
 }
 
 .mainLink {
-    margin-right: 15px;
+
+}
+
+.drawerList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+
+.drawerListItem{
+    margin-top: 15px;
 }
