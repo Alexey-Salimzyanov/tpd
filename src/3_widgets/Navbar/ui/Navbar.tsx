@@ -8,7 +8,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import InfoIcon from '@mui/icons-material/Info';
 import { useState } from 'react';
 import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
-import ControlledAccordions from '6_shared/ui/Accordion/Accordion';
+import { Accordion } from '6_shared/ui/Accordion/Accordion';
 import { useNavigate } from 'react-router-dom'; // Импортируем useNavigate
 
 interface NavbarProps {
@@ -25,9 +25,15 @@ export function Navbar(props: NavbarProps) {
     };
 
     const handleNavigation = (path: string) => () => {
-        navigate(path); 
-        setOpen(false); 
+        navigate(path);
+        setOpen(false);
     };
+    const [expanded, setExpanded] = useState<string | false>(false);
+
+    const handleChange =
+        (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
+            setExpanded(isExpanded ? panel : false);
+        };
 
     return (
         <div className={classNames(cls.navbar, {}, [className])}>
@@ -36,7 +42,7 @@ export function Navbar(props: NavbarProps) {
                     <MenuOutlinedIcon fontSize='large' />
                 </Button>
                 <Drawer open={open} onClose={toggleDrawer(false)}>
-                    <div style={{width: '250px'}}>
+                    <div style={{ width: '250px' }}>
                         <List>
                             <ListItem disablePadding>
                                 <ListItemButton onClick={handleNavigation('/')}>
@@ -55,8 +61,43 @@ export function Navbar(props: NavbarProps) {
                                 </ListItemButton>
                             </ListItem>
                         </List>
-                        <Divider/>
-                        <ControlledAccordions />
+                        <Divider />
+                        <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} summary='Список 1'>
+                            <ListItem disablePadding>
+                                <ListItemButton onClick={handleNavigation('/')}>
+                                    <ListItemIcon>
+                                        <HomeIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Главная" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton onClick={handleNavigation('/about')}>
+                                    <ListItemIcon>
+                                        <InfoIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="О сайте" />
+                                </ListItemButton>
+                            </ListItem>
+                        </Accordion>
+                        <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')} summary='Список 2'>
+                            <ListItem disablePadding>
+                                <ListItemButton onClick={handleNavigation('/')}>
+                                    <ListItemIcon>
+                                        <HomeIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Главная" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding>
+                                <ListItemButton onClick={handleNavigation('/about')}>
+                                    <ListItemIcon>
+                                        <InfoIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="О сайте" />
+                                </ListItemButton>
+                            </ListItem>
+                        </Accordion>
                     </div>
                 </Drawer>
             </div>
