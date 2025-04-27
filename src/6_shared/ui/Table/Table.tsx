@@ -19,24 +19,19 @@ interface TableProps extends DataGridProps{
 
   
 export const Table: React.FC<TableProps> = (props) => {
-	const { className, rows, columns, paginationModel, slotProps} = props;
+	const { className, rows, columns, paginationModel, slotProps, ...otherProps} = props;
 	return (
-		<Paper sx={{ height: 400, width: '900px' }}>
-			<div style={{ height: 400, width: '100%' }}>
-				<ThemeProvider theme={theme}>
-					<DataGrid
-						rows={rows}
-						columns={columns}
-						initialState={{ pagination: { paginationModel } }}
-						pageSizeOptions={[5, 10]}
-						sx={{ border: 0 }}
-						getRowId={(row) => row.id}
-						slotProps={slotProps}
-						disableRowSelectionOnClick
-						
-					/>
-				</ThemeProvider>
-			</div>
-		</Paper>
+		<ThemeProvider theme={theme}>
+			<DataGrid
+				rows={rows}
+				columns={columns}
+				initialState={{ pagination: { paginationModel } }}
+				pageSizeOptions={[5, 10]}
+				getRowId={(row) => row.id}
+				slotProps={slotProps}
+				disableRowSelectionOnClick
+				{...otherProps}
+			/>
+		</ThemeProvider>
 	);
 }

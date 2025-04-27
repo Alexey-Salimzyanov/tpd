@@ -1,0 +1,20 @@
+.printProgram{
+	display: flex;
+	gap: 10px;
+	border: 1px solid var(--border-color);
+	padding: 10px 5px;
+	align-items: stretch;
+	height: auto;
+	flex-wrap: wrap;
+}
+
+.print-btn{
+	align-self: stretch;
+}
+
+.checkboxes{
+	align-self: stretch;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}

@@ -1,48 +1,26 @@
 import { classNames } from '6_shared/lib/classNames/ClassNames';
-import './TabPanel.css';
-import { useState } from 'react';
-
-interface Tab {
-	label: string,
-	content: React.ReactNode,
-}
-
+import { Tabs } from '6_shared/ui/Tabs/Tabs';
+import { UsersTable } from '5_entities/UsersTable';
+import { EnterTopic } from '4_features/EnterTopic';
+import { GeneralStructure } from '4_features/GeneralStructure';
+import { GeneralInformation } from '4_features/GeneralInformation';
+import { SettingGoals } from '4_features/SettingGoals';
+import cls from './TabPanel.module.css';
 interface TabPanelProps {
 	className?: string;
-	tabs: Tab[] ////////////////////////////////
 }
 
-export const TabPanel: React.FC<TabPanelProps> = (props) => {
-	const { className, tabs } = props;
-	const [activeTab, setActiveTab] = useState(tabs[0].label);
+export const TabPanel = (props: TabPanelProps) => {
+	const { className } = props;
+	const tabs = []
 
-	const handleTabClick = (label: string) => {
-		setActiveTab(label);
-	};
+	tabs.push({ label: `Тестовая вкладка`, content:  <UsersTable /> })
+	tabs.push({ label: `Ввод тем`, content:  <EnterTopic />})
+	tabs.push({ label: `Общая структура`, content:  <GeneralStructure />})
+	tabs.push({ label: `Общие сведения`, content:  <GeneralInformation />})
+	tabs.push({ label: `Установка целей`, content:  <SettingGoals />})
 
 	return (
-		<div className="tabs">
-			<div className="tab-list">
-				{tabs.map((tab) => (
-					<button
-						key={tab.label}
-						className={`tab ${tab.label === activeTab ? 'active' : ''}`}
-						onClick={() => handleTabClick(tab.label)}
-					>
-						{tab.label}
-					</button>
-				))}
-			</div>
-			<div className="tab-content">
-				{tabs.map((tab) => (
-					<div
-						key={tab.label}
-						className={`tab-panel ${tab.label === activeTab ? 'active' : ''}`}
-					>
-						{tab.content}
-					</div>
-				))}
-			</div>
-		</div>
-	);
+ 		<Tabs className={cls.tabPanel} tabs={tabs} />
+ 	);
 }

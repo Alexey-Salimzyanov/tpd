@@ -6,7 +6,7 @@
   .tab-list {
 	display: flex;
 	flex-wrap: wrap;
-	border-bottom: 1px solid #ccc;
+	border: 1px solid var(--border-color);
   }
   
   .tab {
@@ -21,15 +21,16 @@
   }
   
   .tab:hover {
-	background-color: #f0f0f0;
+	background-color: #e6e6e6;
   }
   
   .tab.active {
 	border-bottom: 2px solid #007bff;
+	background-color: #e0e0e0;
   }
   
   .tab-content {
-	padding: 20px;
+	padding: 15px 0px 15px 0px;
   }
   
   .tab-panel {

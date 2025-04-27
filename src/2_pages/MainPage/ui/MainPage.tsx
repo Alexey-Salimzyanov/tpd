@@ -1,19 +1,18 @@
 import { BugButton } from "1_app/providers/ErrorBoundary";
-import { TabPanel } from "3_widgets/TabPanel/ui/TabPanel";
+import { Tabs } from "6_shared/ui/Tabs/Tabs"; 
 import { UsersTable } from "5_entities/UsersTable";
 import { Button } from "6_shared/ui/Button/Button";
 import { Checkbox } from "6_shared/ui/Checkbox/Checkbox";
 import { Select } from "6_shared/ui/Select/Select";
 import { MenuItem, SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
+import { TabPanel } from "3_widgets/TabPanel";
+import { Menu } from "6_shared/ui/Menu/Menu";
+import { PrintProgram } from "4_features/PrintProgram";
 
 
 const MainPage = () => {
-  const tabs = []
-  for (let i = 1; i <= 30; i++) {
-    tabs.push({ label: `Вкладка ${i}`, content: <div>Содержимое вкладки {i}</div> })
-  }
-  tabs[0].content = <UsersTable />
+
 
   const [age, setAge] = useState('');
 
@@ -23,8 +22,10 @@ const MainPage = () => {
 
   return (
     <div>
-      <TabPanel tabs={tabs} />
-      <BugButton/>
+     <PrintProgram/>
+     <TabPanel/>
+
+      {/* <BugButton/>
       <Checkbox />
       <div style={{maxWidth:'300px'}}>
       <Select value={age} onChange={handleChange} sx={{background:'red'}} label={'Список'}>
@@ -32,7 +33,7 @@ const MainPage = () => {
         <MenuItem value={20}>Опция 2</MenuItem>
         <MenuItem value={30}>Опция 3</MenuItem>
       </Select>
-      </div>
+      </div> */}
 
     </div>
   );

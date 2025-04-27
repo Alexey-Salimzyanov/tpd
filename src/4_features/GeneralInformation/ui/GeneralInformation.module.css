@@ -1,0 +1,45 @@
+.generalInformation{
+	
+}
+.group{
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid var(--border-color);
+	margin: 5px 0;
+}
+.selectorsArea {
+	padding: 5px;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 16px;
+	align-items: center;
+  }
+  
+  .selectRow {
+	display: contents; 
+  }
+  
+  .select {
+	width: 100%;
+	min-width: 250px; 
+  }
+
+.selectFrorm{
+	display: flex;
+}
+
+.btn{
+	padding: 5px 50px 0 0;
+}
+.tables{
+	display: flex;
+	gap:5px;
+	border: 1px solid var(--border-color);
+	padding: 5px;
+	width: 100%;
+	overflow: hidden;
+}
+.tables > * {
+	min-width: 0; 
+	width: 100%; 
+  }

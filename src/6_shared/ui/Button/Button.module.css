@@ -1,14 +1,21 @@
 .Button{
-    padding: 5px;
+    padding: 5px 15px;
 }
 
 .outlined{
     background: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 3px;
+    border: 1px solid var(--border-color);
+}
+.outlined:hover{  
+    background: #f4f4f4;
+    border-color: black;
+    transition: 0.2s background;
 }
 
 .clear{
+    padding: 0px;
     background: none;
     cursor: pointer;
     border: none;

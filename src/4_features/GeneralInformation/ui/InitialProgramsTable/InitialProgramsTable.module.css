@@ -1,0 +1,6 @@
+.initialProgramsTable{
+	border: 1px solid var(--border-color);
+	padding:5px;
+	display: flex;
+	flex-direction: column;
+}

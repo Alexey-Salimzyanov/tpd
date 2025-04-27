@@ -8,4 +8,4 @@ interface CheckboxProps extends MuiCheckboxProps{
 
 export const Checkbox = styled(MuiCheckbox)<CheckboxProps>(({ className, ...otherProps }) => ({
 	//кастомные стили
-  }));
+}));

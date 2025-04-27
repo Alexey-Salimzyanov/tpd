@@ -9,26 +9,24 @@ import { classNames } from '6_shared/lib/classNames/ClassNames';
 
 type SelectProps = MuiSelectProps & {
   className?: string;
-  label: string;
+  label?: string;
 }
 
 export const Select: FC<SelectProps> = (props) => {
 
-	const { className, children, label, value, onChange} = props;
+	const { className, children, label = '', value, onChange} = props;
 
 	return (
-		<div className={classNames(cls.select, {}, [className])} >
-			<Box sx={{ minWidth: 120 }}>
-				<FormControl fullWidth variant="filled" sx={{ minWidth: 120 }}>
-					<InputLabel >{label}</InputLabel>
-					<MuiSelect
-						value={value}
-						onChange={onChange}
-					>
-						{children}
-					</MuiSelect>
-				</FormControl>
-			</Box>
+		<div className={classNames(cls.select, {}, [])} >
+			<InputLabel >{label}</InputLabel>
+			<MuiSelect
+				value={value}
+				onChange={onChange}
+				label={label}
+				className={className}
+			>
+				{children}
+			</MuiSelect>
 		</div>
 	);
 }

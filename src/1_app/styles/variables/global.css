@@ -10,4 +10,8 @@
 
     /* Размеры */
     --navbar-height: 50px;
+
+    /*Цвета*/
+    --bg-color: #ffffff;
+    --border-color: rgb(224, 224, 224);
 }
