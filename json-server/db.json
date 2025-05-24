@@ -162,5 +162,39 @@
         "bs": "target end-to-end models"
       }
     }
+  ],
+  "HFD": [
+    {
+      "id": "1",
+      "semester": 1,
+      "lectionPlan": 99,
+      "lectionTheme": 13,
+      "lectionRemainder": "0",
+      "practicePlan": "12",
+      "practiceTheme": "12",
+      "practiceRemainder": "0",
+      "labPlan": "0",
+      "labTheme": "",
+      "labRemainder": "0",
+      "activeHoursPlan": "6",
+      "activeHoursTheme": "6",
+      "activeHoursRemainder": "0"
+    },
+    {
+      "id": "3",
+      "semester": 1,
+      "lectionPlan": 10,
+      "lectionTheme": 11,
+      "lectionRemainder": "0",
+      "practicePlan": "12",
+      "practiceTheme": "12",
+      "practiceRemainder": "0",
+      "labPlan": "0",
+      "labTheme": "",
+      "labRemainder": "0",
+      "activeHoursPlan": "6",
+      "activeHoursTheme": "6",
+      "activeHoursRemainder": "0"
+    }
   ]
 }
